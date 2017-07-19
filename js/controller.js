@@ -66,6 +66,9 @@
            //只要有一项任务被选中就显示 Clear completed 按钮,如果都没有选中,就返回ret 为false ,该按钮就隐藏
            vm.isShow=TodoServe.isShow;
 
+            //-------------------7.显示未完成的任务数-------------------------------
+           vm.getCount=TodoServe.getCount;
+
         
      }
 })(angular)

@@ -29,6 +29,29 @@
           //-----------------------------3.删除任务---------------------------
           vm.del=TodoServe.del;
 
+          //  ---------------------------4.修改任务-------------------------------
+         /**
+          * 思路:双击任务元素,给当前西添加 editing类
+            给$scope添加一个editingId,用来记录当前正在修改项的id值,默认值为 -1
+            双击某一任务,给当前项的id 赋值为editingId ,此时会引起数据的变化
+            那么页面中与editingId相关的指令都会被重新计算,因为editingId==todo.id,
+            所以当前双击的这一项的id 就和 editingId相同,那么当前项就会添加这个类
+          */
+          vm.editingId=-1;
+          vm.edit=function(id){
+              vm.editingId=id;
+          };
+          /**
+           * 编辑文本框,通过 todo.name与数据双向绑定,当在视图中修改了任务名称之后,数据也会跟着变化
+           * 回车之后,执行vm.editingId=-1;数据发生变化,会重新计算 editingId==todo.id
+           * 此时,所有任务项的 id 和editingId 都不相同,所以,会将这个类移除掉
+           */
+          vm.editSave=function(){
+              vm.editingId=-1;
+
+              TodoServe.save();
+          };
+
         
      }
 })(angular)

@@ -69,6 +69,25 @@
             //-------------------7.显示未完成的任务数-------------------------------
            vm.getCount=TodoServe.getCount;
 
+            //---------------8.根据URL变化,显示不同状态的任务,以及当前任务高亮处理-------------------
+           vm.status=undefined;
+           vm.location=$location;
+           vm.$watch('location.url()',function(newValue,oldValue){
+               console.log(newValue);
+               switch(newValue){
+                   case '/active':
+                      vm.status=false;
+                      break;
+                   case '/completed':
+                      vm.status=true;
+                      break;
+                   default:
+                      vm.status=undefined;
+                      break;
+               }
+           });
+
+
         
      }
 })(angular)

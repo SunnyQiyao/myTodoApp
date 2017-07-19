@@ -52,6 +52,12 @@
               TodoServe.save();
           };
 
+           //-----------------5.切换任务选中状态(单个或者批量-->全选全不选)-----------------
+           vm.isCheckedAll=false;
+           vm.checkAll=function(){
+               TodoServe.checkAll(vm.isCheckedAll);
+           };
+
         
      }
 })(angular)

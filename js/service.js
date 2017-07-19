@@ -60,6 +60,15 @@
               //  ---------------------------4.修改数据--------------------------------
             //因为都是和 $scope 相关的,所以不用放到服务里
 
+            //-----------------5.切换任务选中状态(单个或者批量-->全选全不选)--------------
+            this.checkAll=function(isCheckedAll){
+                for(var i=0;i<todoList.length;i++){
+                    //根据全选按钮的选中状态,来控制所有项的选中状态
+                    todoList[i].isCompleted=isCheckedAll;
+                };
+                that.save();
+            }
+
            
 
        }])

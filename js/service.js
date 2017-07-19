@@ -44,6 +44,19 @@
 
                 that.save();
             };
+
+
+              //------------------------------3.删除数据-------------------------------------
+            this.del=function(id){
+                for(var i=0;i<todoList.length;i++){
+                    if(todoList[i].id=id){
+                        todoList.splice(i,1);
+                        break;
+                    }
+                };
+                that.save();
+            };
+
            
 
        }])

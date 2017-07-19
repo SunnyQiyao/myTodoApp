@@ -26,6 +26,24 @@
             }
 
             var that=this;
+
+            //-----------------------------2.添加数据-----------------------------
+            //  service方法中的函数参数，是一个构造函数，通过this添加成员
+            this.add=function(taskName){
+                var id,
+                    length=todoList.length;
+                //如果数组中没有值,那么添加项的id就是 1
+                //反之,如果有值,那么就取数组中最后一项的 id ,再加 1
+                if(length===0){
+                    id=1
+                }else{
+                    id=todoList[todoList.length-1].id+1
+                }
+                //将新添加的内容加入到任务列表中
+                todoList.push({id:id,name:taskName,isCompleted:false});
+
+                that.save();
+            };
            
 
        }])

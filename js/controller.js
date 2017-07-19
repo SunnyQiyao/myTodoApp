@@ -15,6 +15,17 @@
          var todoList=TodoServe.getData();
          vm.todoList=todoList;
 
+         //-----------------------------2.添加任务----------------------------------
+         vm.taskName='';  //初始默认为空
+         vm.add=function(){
+             if(vm.taskName.trim()===''){
+                 return;
+             }
+             TodoServe.add(vm.taskName);  //跟页面内容相关的通过参数传入
+
+             vm.taskName='';   //内容添加到页面之后清空输入框
+         };
+
         
      }
 })(angular)

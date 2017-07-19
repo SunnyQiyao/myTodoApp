@@ -69,6 +69,34 @@
                 that.save();
             }
 
+            //-------------------6.清除已完成的任务---------------------------------------
+            this.delCompleted=function(){
+                // 删除已完成的就是保留未完成的
+                var tempArr=[];
+                for(var i=0;i<todoList.length;i++){
+                    if(!todoList[i].isCompleted){
+                        tempArr.push(todoList[i]);
+                    }
+                };
+                //清空数组
+                todoList.length=0;
+                [].push.apply(todoList,tempArr);
+
+                that.save();
+            };
+             //------------------6.1 控制清除按钮的展示和隐藏------------------------------
+             this.isShow=function(){
+                 var ret=false;
+                 for(var i=0;i<todoList.length;i++){
+                     if(todoList[i].isCompleted){
+                         ret=true;
+                         break;
+                     }
+                 };
+                 return ret;
+             };
+
+
            
 
        }])

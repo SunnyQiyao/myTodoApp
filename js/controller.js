@@ -58,6 +58,14 @@
                TodoServe.checkAll(vm.isCheckedAll);
            };
 
+
+           //-------------------6.清除已完成的任务---------------------------------------
+           vm.delCompleted=TodoServe.delCompleted;
+
+           //------------------6.1 控制清除按钮的展示和隐藏------------------------------
+           //只要有一项任务被选中就显示 Clear completed 按钮,如果都没有选中,就返回ret 为false ,该按钮就隐藏
+           vm.isShow=TodoServe.isShow;
+
         
      }
 })(angular)
